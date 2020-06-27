@@ -1,0 +1,35 @@
+.top-container {
+  height: 100vh; // calc(100vh - 70px); // navbar height
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .logo-container {
+    position: relative;
+    width: 450px;
+    max-width: 90%;
+
+    // &::after {
+    //   position: absolute;
+    //   bottom: 24%;
+    //   right: -5px;
+    //   width: 71%;
+    //   height: 18%;
+    //   background-color: darken(rgb(127, 197, 92), 10%);
+    //   z-index: -1;
+    //   content: "";
+    // }
+
+    &::after {
+      position: absolute;
+      bottom: 22%;
+      right: -6px;
+      width: 103%;
+      height: 62%;
+      background-color: fadeout(black, 20%);
+      z-index: -1;
+      border-radius: 2px;
+      content: "";
+    }
+  }
+}
