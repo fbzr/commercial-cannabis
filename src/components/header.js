@@ -5,13 +5,16 @@ import "./header.less"
 import { Menu } from "antd"
 
 const Header = ({ siteTitle }) => {
+  const url = typeof window !== "undefined" ? window.location.href : ""
+  const selected = url.includes("/about") ? ["about"] : ["home"]
+
   return (
     <header className="navbar">
-      <Menu className="menu" mode="horizontal">
-        <Menu.Item key="/">
+      <Menu selectedKeys={selected} className="menu" mode="horizontal">
+        <Menu.Item key="home">
           <Link to="/">Home</Link>
         </Menu.Item>
-        <Menu.Item key="/about">
+        <Menu.Item key="about">
           <Link to="/about">About</Link>
         </Menu.Item>
       </Menu>
@@ -24,7 +27,7 @@ Header.propTypes = {
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+  siteTitle: `Commercial Cannabis Inc.`,
 }
 
 export default Header
