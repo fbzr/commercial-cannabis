@@ -11,7 +11,7 @@ module.exports = {
       options: {
         javascriptEnabled: true,
         modifyVars: {
-          "primary-color": "#183C52",
+          "primary-color": "#6ebe46",
           "heading-color": "#777777",
           "menu-horizontal-line-height": "50px",
           "navbar-height": "@menu-horizontal-line-height",
