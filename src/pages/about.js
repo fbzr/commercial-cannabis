@@ -4,11 +4,15 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import "./about.less"
+
 const About = () => (
   <Layout>
     <SEO title="About" />
-    <h1>About page</h1>
-    <Link to="/">Go back to the homepage</Link>
+    <div className="container">
+      <h1>About page</h1>
+      <Link to="/">Go back to the homepage</Link>
+    </div>
   </Layout>
 )
 
