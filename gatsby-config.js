@@ -13,6 +13,8 @@ module.exports = {
         modifyVars: {
           "primary-color": "#183C52",
           "heading-color": "#777777",
+          "menu-horizontal-line-height": "50px",
+          "navbar-height": "@menu-horizontal-line-height",
         },
       },
     },
