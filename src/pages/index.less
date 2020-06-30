@@ -1,3 +1,5 @@
+@padding: 25px 50px;
+
 .top-container {
   height: calc(100vh - @navbar-height);
   display: flex;
@@ -6,19 +8,31 @@
 
   .logo-container {
     position: relative;
-    width: 450px;
+    width: 550px;
     max-width: 90%;
+    bottom: calc(@navbar-height / 2);
+  }
+}
 
-    &::after {
-      position: absolute;
-      bottom: 22%;
-      right: -6px;
-      width: 103%;
-      height: 62%;
-      background-color: fadeout(black, 20%);
-      z-index: -1;
-      border-radius: 2px;
-      content: "";
+.main-content {
+  .title {
+    padding: @padding;
+  }
+
+  .section {
+    font-size: 1.4rem;
+    padding: @padding;
+    margin-bottom: 0;
+    display: flex;
+
+    &.last-section {
+      font-size: 1rem;
+      padding-top: 0 50px;
+      text-align: center;
+    }
+
+    &.colored-bg {
+      background-color: lighten(@primary-color, 40%);
     }
   }
 }
