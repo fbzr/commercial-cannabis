@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Commercial Cannabis Inc.`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
@@ -12,8 +12,9 @@ module.exports = {
         javascriptEnabled: true,
         modifyVars: {
           "primary-color": "#6ebe46",
-          "heading-color": "#777777",
+          "heading-color": "#333",
           "menu-horizontal-line-height": "50px",
+          "layout-header-height": "50px",
           "navbar-height": "@menu-horizontal-line-height",
         },
       },
