@@ -41,13 +41,13 @@ const IndexPage = () => {
           />
         </div>
       </div>
-      <Content className="main-content">
-        <Title level={2} className="title">
+      <Content className="main-content content-padding">
+        <Title level={2}>
           Commercial Cannabis (Inc) is a Wholesale Marketing company.
         </Title>
 
         <div className="section">
-          <Row>
+          <Row gutter={24}>
             <Col xs={24} md={12}>
               <Paragraph>
                 From coast to coast in the United States and in many other
@@ -98,7 +98,7 @@ const IndexPage = () => {
             with YOUR BUSINESS.
           </Paragraph>
         </div>
-        <Paragraph strong className="section last-section">
+        <Paragraph strong className="section" style={{ fontSize: "1rem" }}>
           Please see bio and resume of the company’s CEO, James R. Bellile; with
           over a decade and a half of verifiable proof; ethics over money
           ALWAYS, this is NEVER negotiable.
