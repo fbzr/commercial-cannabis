@@ -16,6 +16,7 @@ module.exports = {
           "menu-horizontal-line-height": "50px",
           "layout-header-height": "50px",
           "navbar-height": "@menu-horizontal-line-height",
+          "layout-footer-padding": "25px 14%",
         },
       },
     },
@@ -46,7 +47,12 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-scroll-reveal`,
+    {
+      resolve: `gatsby-plugin-scroll-reveal`,
+      options: {
+        once: true, // Defines if animation needs to be launched once
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
