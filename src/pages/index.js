@@ -35,8 +35,15 @@ const IndexPage = () => {
         </div>
       </div>
       <Content className="main-content content-padding">
-        <Row gutter={24} className="section" justify="center">
-          <Col xs={24} md={10}>
+        <Row
+          gutter={36}
+          className="section"
+          justify="center"
+          data-sal="slide-left"
+          data-sal-duration="500"
+          data-sal-easing="ease"
+        >
+          <Col xs={24} md={10} className="artsy">
             <Title level={2}>
               Commercial Cannabis (Inc) is a Wholesale Marketing company.
             </Title>
@@ -54,7 +61,14 @@ const IndexPage = () => {
             </Paragraph>
           </Col>
         </Row>
-        <Row gutter={24} className="section">
+        <Row
+          gutter={36}
+          className="section"
+          justify="center"
+          data-sal="slide-right"
+          data-sal-duration="500"
+          data-sal-easing="ease"
+        >
           <Col xs={24} md={16}>
             <Paragraph>
               Maybe you’re a CBD dispensary in Maine? We’ve got your growers,
@@ -68,7 +82,7 @@ const IndexPage = () => {
               helps the world, we’ll give it a go to assist.
             </Paragraph>
           </Col>
-          <Col xs={24} md={8}>
+          <Col xs={24} md={8} className="artsy">
             <Title level={2}>
               Using it’s nationally spread force, Commercial Cannabis Inc
               matches each type of business and products with the right
@@ -76,9 +90,15 @@ const IndexPage = () => {
             </Title>
           </Col>
         </Row>
-
-        <Row gutter={36} className="section">
-          <Col xs={24} md={8}>
+        <Row
+          gutter={36}
+          className="section"
+          justify="center"
+          data-sal="slide-left"
+          data-sal-duration="500"
+          data-sal-easing="ease"
+        >
+          <Col xs={24} md={8} className="artsy">
             <Title level={2}>
               We Introduce Good People in the Cannabis Industry and ‘Cultivate’
               Business to Business Relations.

@@ -1,4 +1,4 @@
-@padding: 25px 50px;
+@padding: 25px 14%;
 
 .top-container {
   height: calc(100vh - @navbar-height);
@@ -23,9 +23,25 @@
     font-size: 1.2rem;
     display: flex;
     margin: 0 0 100px;
+  }
 
-    &.full-page {
-      height: 100vh;
+  .title {
+    margin-bottom: 40px;
+  }
+
+  .artsy {
+    align-content: center;
+    border: solid 1px yellowgreen;
+
+    &::after {
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      background-color: lighten(@primary-color, 40%);
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      content: "";
     }
   }
 }

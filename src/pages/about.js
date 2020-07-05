@@ -14,7 +14,10 @@ const About = () => {
   return (
     <Layout>
       <SEO title="About" />
-      <Content className="main-content content-padding">
+      <Content
+        className="main-content content-padding"
+        style={{ paddingBottom: 0 }}
+      >
         <Title level={2} className="title">
           Meet the CEO of Commercial Cannabis (Inc.)
         </Title>
@@ -79,8 +82,9 @@ const About = () => {
           making an honest living. We hope to meet you soon.
         </Paragraph>
       </Content>
-
-      <Link to="/">Go back to the homepage</Link>
+      <div className="content-padding" style={{ paddingTop: 0 }}>
+        <Link to="/">Go back to the homepage</Link>
+      </div>
     </Layout>
   )
 }
