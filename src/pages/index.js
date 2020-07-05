@@ -20,13 +20,6 @@ const IndexPage = () => {
           }
         }
       }
-      plant: file(relativePath: { eq: "plant.jpg" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
     }
   `)
 
@@ -42,11 +35,20 @@ const IndexPage = () => {
         </div>
       </div>
       <Content className="main-content content-padding">
-        <Row gutter={24} className="section">
-          <Col xs={24} md={14}>
+        <Row
+          gutter={36}
+          className="section"
+          justify="center"
+          data-sal="slide-left"
+          data-sal-duration="500"
+          data-sal-easing="ease"
+        >
+          <Col xs={24} md={10} className="artsy">
             <Title level={2}>
               Commercial Cannabis (Inc) is a Wholesale Marketing company.
             </Title>
+          </Col>
+          <Col xs={24} lg={14}>
             <Paragraph>
               From coast to coast in the United States and in many other
               countries around the world, the cannabis industry is growing
@@ -58,22 +60,15 @@ const IndexPage = () => {
               resources and energy finding the right connections.
             </Paragraph>
           </Col>
-          <Col xs={24} md={10}>
-            <Img
-              fluid={images.plant.childImageSharp.fluid}
-              alt="Cannabis image"
-              style={{ height: "100%" }}
-            />
-          </Col>
         </Row>
-        <Row gutter={24} className="section">
-          <Col xs={24} md={8}>
-            <Title level={2}>
-              Using it’s nationally spread force, Commercial Cannabis Inc
-              matches each type of business and products with the right
-              partner(s).
-            </Title>
-          </Col>
+        <Row
+          gutter={36}
+          className="section"
+          justify="center"
+          data-sal="slide-right"
+          data-sal-duration="500"
+          data-sal-easing="ease"
+        >
           <Col xs={24} md={16}>
             <Paragraph>
               Maybe you’re a CBD dispensary in Maine? We’ve got your growers,
@@ -87,13 +82,26 @@ const IndexPage = () => {
               helps the world, we’ll give it a go to assist.
             </Paragraph>
           </Col>
+          <Col xs={24} md={8} className="artsy">
+            <Title level={2}>
+              Using it’s nationally spread force, Commercial Cannabis Inc
+              matches each type of business and products with the right
+              partner(s).
+            </Title>
+          </Col>
         </Row>
-
-        <Row gutter={36} className="section">
-          <Col xs={24} md={8}>
+        <Row
+          gutter={36}
+          className="section"
+          justify="center"
+          data-sal="slide-left"
+          data-sal-duration="500"
+          data-sal-easing="ease"
+        >
+          <Col xs={24} md={8} className="artsy">
             <Title level={2}>
               We Introduce Good People in the Cannabis Industry and ‘Cultivate’
-              Business to Business Relations
+              Business to Business Relations.
             </Title>
           </Col>
           <Col xs={24} md={16}>
@@ -110,7 +118,10 @@ const IndexPage = () => {
           </Col>
         </Row>
 
-        <Paragraph strong style={{ fontSize: "1rem" }}>
+        <Paragraph
+          strong
+          style={{ fontSize: "1rem", width: "100%", textAlign: "left" }}
+        >
           Please see bio and resume of the company’s CEO, James R. Bellile; with
           over a decade and a half of verifiable proof; ethics over money
           ALWAYS, this is NEVER negotiable.
