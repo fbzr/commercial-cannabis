@@ -9,12 +9,13 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import { Layout as AntLayout } from "antd"
+import { Typography, Layout as AntLayout } from "antd"
 
 import Header from "./header"
+import Footer from "./footer"
 
 const Layout = ({ children }) => {
-  const { Content, Footer } = AntLayout
+  const { Content } = AntLayout
 
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -31,11 +32,7 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
 
       <Content>{children}</Content>
-      <Footer>
-        © {new Date().getFullYear()}, Built by
-        {` `}
-        <a href="https://www.fabriciobezerra.com">Fabricio Bezerra</a>
-      </Footer>
+      <Footer />
     </>
   )
 }

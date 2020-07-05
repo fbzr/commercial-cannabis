@@ -1,0 +1,16 @@
+@label-width: 20%;
+@content-width: 80%;
+
+.ant-timeline-item-label {
+  width: calc(@label-width - 12px) !important;
+}
+
+.ant-timeline-item-tail,
+.ant-timeline-item-head {
+  left: @label-width !important;
+}
+
+.ant-timeline-item-content {
+  left: calc(@label-width - 4px) !important;
+  width: calc(@content-width - 14px) !important;
+}

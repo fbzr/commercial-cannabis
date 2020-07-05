@@ -1,10 +1,10 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-import { Typography, Row, Col, Layout as AntLayout } from "antd"
+import { Typography, Row, Col, Divider, Layout as AntLayout } from "antd"
 import "./index.less"
 
 const IndexPage = () => {
@@ -27,7 +27,12 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       <div className="top-container">
-        <div className="logo-container">
+        <div
+          className="logo-container"
+          data-sal="fade"
+          data-sal-duration="500"
+          data-sal-easing="ease"
+        >
           <Img
             fluid={images.logo.childImageSharp.fluid}
             alt="Commercial Cannabis Logo"
@@ -39,8 +44,8 @@ const IndexPage = () => {
           gutter={36}
           className="section"
           justify="center"
-          data-sal="slide-left"
-          data-sal-duration="500"
+          data-sal="fade"
+          data-sal-duration="700"
           data-sal-easing="ease"
         >
           <Col xs={24} md={10} className="artsy">
@@ -61,12 +66,13 @@ const IndexPage = () => {
             </Paragraph>
           </Col>
         </Row>
+        <Divider />
         <Row
           gutter={36}
           className="section"
           justify="center"
-          data-sal="slide-right"
-          data-sal-duration="500"
+          data-sal="fade"
+          data-sal-duration="700"
           data-sal-easing="ease"
         >
           <Col xs={24} md={16}>
@@ -83,23 +89,24 @@ const IndexPage = () => {
             </Paragraph>
           </Col>
           <Col xs={24} md={8} className="artsy">
-            <Title level={2}>
+            <Title level={2} style={{ fontSize: "1.7rem" }}>
               Using it’s nationally spread force, Commercial Cannabis Inc
               matches each type of business and products with the right
               partner(s).
             </Title>
           </Col>
         </Row>
+        <Divider />
         <Row
           gutter={36}
           className="section"
           justify="center"
-          data-sal="slide-left"
-          data-sal-duration="500"
+          data-sal="fade"
+          data-sal-duration="700"
           data-sal-easing="ease"
         >
           <Col xs={24} md={8} className="artsy">
-            <Title level={2}>
+            <Title level={2} style={{ fontSize: "1.7rem" }}>
               We Introduce Good People in the Cannabis Industry and ‘Cultivate’
               Business to Business Relations.
             </Title>
@@ -117,13 +124,18 @@ const IndexPage = () => {
             </Paragraph>
           </Col>
         </Row>
-
+        <Divider />
         <Paragraph
+          data-sal="fade"
+          data-sal-duration="700"
+          data-sal-easing="ease"
           strong
-          style={{ fontSize: "1rem", width: "100%", textAlign: "left" }}
+          style={{ fontSize: "1rem", width: "100%", textAlign: "center" }}
         >
-          Please see bio and resume of the company’s CEO, James R. Bellile; with
-          over a decade and a half of verifiable proof; ethics over money
+          Please <Link to="/about">click here</Link> to see bio and resume of
+          the company’s CEO, James R. Bellile.
+          <br />
+          With over a decade and a half of verifiable proof, ethics over money
           ALWAYS, this is NEVER negotiable.
         </Paragraph>
       </Content>
