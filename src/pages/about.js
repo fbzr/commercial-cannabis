@@ -6,10 +6,8 @@ import BackgroundTimeline from "../components/backgroundTimeline"
 import SEO from "../components/seo"
 import { Typography, Row, Col, Divider, Layout as AntLayout } from "antd"
 
-import "./about.less"
-
 const About = () => {
-  const { Title, Paragraph, Text } = Typography
+  const { Title, Paragraph } = Typography
   const { Content } = AntLayout
 
   const images = useStaticQuery(graphql`
@@ -43,6 +41,7 @@ const About = () => {
           gutter={36}
           className="section"
           justify="center"
+          style={{ marginTop: 0 }}
           data-sal="fade"
           data-sal-duration="500"
           data-sal-easing="ease"
@@ -72,8 +71,9 @@ const About = () => {
           </Col>
           <Col xs={24} lg={10}>
             <Img
+              className="profile-photo"
               fluid={images.profile.childImageSharp.fluid}
-              alt="Commercial Cannabis Logo"
+              alt="James"
             />
           </Col>
         </Row>
@@ -153,8 +153,20 @@ const About = () => {
         </Row>
         <Divider />
         <BackgroundTimeline />
+        <Paragraph>
+          On a side note, James is also learning Spanish, construction, and
+          international business.
+        </Paragraph>
+        <Paragraph>
+          Romans 8:31 James 1:12 Galatians 6 Psalms 23 Psalms 37
+          <br />
+          LOVE — HOPE — FAITH
+        </Paragraph>
       </Content>
-      <div className="content-padding" style={{ paddingTop: 0 }}>
+      <div
+        className="content-padding"
+        style={{ paddingTop: 0, textAlign: "right" }}
+      >
         <Link to="/">Go back to the homepage</Link>
       </div>
     </Layout>

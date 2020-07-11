@@ -90,9 +90,8 @@ const IndexPage = () => {
           </Col>
           <Col xs={24} md={8} className="artsy">
             <Title level={2} style={{ fontSize: "1.7rem" }}>
-              Using it’s nationally spread force, Commercial Cannabis Inc
-              matches each type of business and products with the right
-              partner(s).
+              Using its nationally spread force, Commercial Cannabis Inc matches
+              each type of business and products with the right partner(s).
             </Title>
           </Col>
         </Row>
@@ -107,8 +106,8 @@ const IndexPage = () => {
         >
           <Col xs={24} md={8} className="artsy">
             <Title level={2} style={{ fontSize: "1.7rem" }}>
-              We Introduce Good People in the Cannabis Industry and ‘Cultivate’
-              Business to Business Relations.
+              We introduce good people in the cannabis industry and ‘cultivate’
+              business to business relations.
             </Title>
           </Col>
           <Col xs={24} md={16}>
