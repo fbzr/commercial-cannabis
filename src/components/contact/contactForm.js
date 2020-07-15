@@ -65,7 +65,7 @@ const ContactForm = () => {
 
   return (
     <Form
-      id="contact-form"
+      className="contact-form"
       form={form}
       labelAlign="left"
       labelCol={{ xs: { span: 24 } }}
