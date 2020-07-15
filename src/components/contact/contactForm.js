@@ -1,11 +1,12 @@
 import React, { useState } from "react"
-import { Form, Input, Button, Steps, Space } from "antd"
+import { Form, Input, Button, Steps, Space, Typography } from "antd"
 import PhoneInput from "./phoneInput"
 import "./contactForm.less"
 
 const ContactForm = () => {
   const { Step } = Steps
   const { TextArea } = Input
+  const { Title } = Typography
 
   const [form] = Form.useForm()
   const [state, setState] = useState({
@@ -128,7 +129,14 @@ const ContactForm = () => {
             </Form.Item>
           </>
         ) : (
-          currentStep === lastStep + 1 && <>Message sent</>
+          currentStep === lastStep + 1 && (
+            <div style={{ margin: "50px 0", textAlign: "center" }}>
+              <Title level={2}>Message Sent</Title>
+              <Typography>
+                Thank you for contacting us. We'll be in touch soon.
+              </Typography>
+            </div>
+          )
         )}
       </div>
       {!messageSent && (

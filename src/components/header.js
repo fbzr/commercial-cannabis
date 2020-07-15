@@ -4,7 +4,7 @@ import React from "react"
 import "./header.less"
 import { Menu, Layout } from "antd"
 
-const Header = ({ siteTitle }) => {
+const Header = () => {
   const url = typeof window !== "undefined" ? window.location.href : ""
   const selected = url.includes("/about")
     ? ["about"]
