@@ -92,17 +92,17 @@ const ContactForm = () => {
               name="name"
               rules={[{ required: true, message: "Name is required" }]}
             >
-              <Input />
+              <Input name="name" />
             </Form.Item>
             <Form.Item
               label="Location"
               name="location"
               rules={[{ required: true, message: "Location is required" }]}
             >
-              <Input />
+              <Input name="location" />
             </Form.Item>
             <Form.Item label="Company" name="companyName">
-              <Input />
+              <Input name="company" />
             </Form.Item>
             <Form.Item
               label="Phone"
@@ -112,7 +112,11 @@ const ContactForm = () => {
               ]}
               validateTrigger={["onBlur", "onChange"]}
             >
-              <PhoneInput onChange={handlePhoneInput} value={state.phone} />
+              <PhoneInput
+                name="phone"
+                onChange={handlePhoneInput}
+                value={state.phone}
+              />
             </Form.Item>
           </>
         ) : currentStep === 1 ? (
@@ -123,7 +127,7 @@ const ContactForm = () => {
               name="question1"
               rules={[{ required: true, message: "Answer required" }]}
             >
-              <TextArea rows={5} />
+              <TextArea name="moreInfo-1" rows={5} />
             </Form.Item>
             <Form.Item
               colon={false}
@@ -131,7 +135,7 @@ const ContactForm = () => {
               name="question2"
               rules={[{ required: true, message: "Answer required" }]}
             >
-              <TextArea rows={5} />
+              <TextArea name="moreInfo-2" rows={5} />
             </Form.Item>
           </>
         ) : (
