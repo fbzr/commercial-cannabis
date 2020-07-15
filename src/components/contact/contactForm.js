@@ -44,12 +44,7 @@ const ContactForm = () => {
   const validateFields = async () => {
     if (currentStep === 0) {
       try {
-        const values = await form.validateFields([
-          "name",
-          "company",
-          "location",
-          "phone",
-        ])
+        await form.validateFields(["name", "company", "location", "phone"])
 
         setCurrentStep(currentStep + 1)
       } catch (err) {
