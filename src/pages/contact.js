@@ -1,17 +1,20 @@
-import React from "react"
+import React, { useState } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Typography, Layout as AntLayout, Row, Col } from "antd"
-import { Form, Input, Button, InputNumber } from "antd"
-
-import ContactForm from "../components/contactForm"
+import { Typography, Layout as AntLayout, Row, Col, Divider } from "antd"
+import ContactForm from "../components/contact/contactForm"
+import { createFromIconfontCN } from "@ant-design/icons"
 import "./contact.less"
 
 const Contact = () => {
   const { Content } = AntLayout
   const { Paragraph, Title } = Typography
+
+  const IconFont = createFromIconfontCN({
+    scriptUrl: "//at.alicdn.com/t/font_1924584_aexiew2uowj.js",
+  })
 
   const images = useStaticQuery(graphql`
     query {
@@ -28,57 +31,30 @@ const Contact = () => {
   return (
     <Layout>
       <SEO title="Contact" />
-      <Content id="contact" className="content-padding main-content">
-        <Row justify="center" className="section">
-          <Col>
-            <Img
-              fluid={images.logo.childImageSharp.fluid}
-              alt="Commercial Cannabis Logo"
-            />
-            <Title className="title" level={3}>
-              Get in touch
-            </Title>
+      <Content
+        id="contact"
+        className="content-padding main-content"
+        data-sal="fade"
+        data-sal-duration="700"
+        data-sal-easing="ease"
+      >
+        <Row justify="center" gutter={52}>
+          <Col xs={24} md={12}>
+            <div style={{ maxWidth: 350, margin: "auto" }}>
+              <Img
+                fluid={images.logo.childImageSharp.fluid}
+                alt="Commercial Cannabis Logo"
+                style={{ marginBottom: 70 }}
+              />
+            </div>
 
-            <Form>
-              <Form.Item
-                label="name"
-                name="name"
-                rules={[{ required: true, message: "Name is required" }]}
-              >
-                <Input />
-              </Form.Item>
-              <Form.Item label="Company" name="companyName">
-                <Input />
-              </Form.Item>
-              <Form.Item
-                label="Location"
-                name="location"
-                rules={[{ required: true, message: "Location is required" }]}
-              >
-                <Input />
-              </Form.Item>
-              <Form.Item label="Phone" name="phone">
-                <InputNumber
-                  formatter={value =>
-                    value.replace(/(\d{3})(\d{3})(\d{4})/, "($1) $2-$3")
-                  }
-                />
-              </Form.Item>
-            </Form>
-
-            <Paragraph>
-              4660 S. Eastern Ave Suite #103 Las Vegas, NV 89119
-            </Paragraph>
-            <Paragraph>commercialcannabisinc@gmail.com</Paragraph>
-            <Paragraph>
-              P: 702-222-0815
-              <br />
-              No Faxes Please; it’s a decade passed even 2010. Upgrade already!
-            </Paragraph>
+            <ContactForm />
           </Col>
         </Row>
 
-        <Link to="/">Go back to the homepage</Link>
+        <div style={{ textAlign: "right" }}>
+          <Link to="/">Go back to the homepage</Link>
+        </div>
       </Content>
     </Layout>
   )
