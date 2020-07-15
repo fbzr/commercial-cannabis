@@ -58,7 +58,7 @@ const ContactForm = () => {
     }
   }
 
-  const handleSubmit = e => {
+  const handleConfirmation = e => {
     setCurrentStep(currentStep + 1)
     setMessageSent(true)
   }
@@ -67,11 +67,10 @@ const ContactForm = () => {
     <Form
       id="contact-form"
       form={form}
-      onSubmit={() => console.log("test")}
       labelAlign="left"
       labelCol={{ xs: { span: 24 } }}
       wrapperCol={{ xs: { span: 24 } }}
-      onFinish={handleSubmit}
+      onFinish={handleConfirmation}
       method="post"
       netlify-honeypot="bot-field"
       data-netlify="true"
@@ -160,13 +159,15 @@ const ContactForm = () => {
                 Back
               </Button>
             )}
-            <Button
-              htmlType={currentStep === lastStep ? "submit" : "button"}
-              type="primary"
-              onClick={validateFields}
-            >
-              {currentStep === lastStep ? "Send" : "Next"}
-            </Button>
+            {currentStep === lastStep ? (
+              <Button htmlType="submit" type="primary">
+                Send
+              </Button>
+            ) : (
+              <Button htmlType="button" type="primary" onClick={validateFields}>
+                Next
+              </Button>
+            )}
           </Space>
         </div>
       )}
