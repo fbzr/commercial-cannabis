@@ -44,7 +44,7 @@ const Contact = () => {
               <Img
                 fluid={images.logo.childImageSharp.fluid}
                 alt="Commercial Cannabis Logo"
-                style={{ marginBottom: 70 }}
+                style={{ marginBottom: 40 }}
               />
             </div>
 

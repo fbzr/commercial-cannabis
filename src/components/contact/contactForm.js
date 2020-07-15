@@ -72,7 +72,13 @@ const ContactForm = () => {
       labelCol={{ xs: { span: 24 } }}
       wrapperCol={{ xs: { span: 24 } }}
       onFinish={handleSubmit}
+      method="post"
+      netlify-honeypot="bot-field"
+      data-netlify="true"
+      name="contact"
     >
+      <input type="hidden" name="bot-field" />
+      <input type="hidden" name="form-name" value="contact" />
       <Steps size="small" current={currentStep}>
         <Step title="Info" />
         <Step title="Details" />
