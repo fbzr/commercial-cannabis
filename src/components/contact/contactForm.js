@@ -53,7 +53,7 @@ const ContactForm = () => {
     }
   }
 
-  const handleConfirmation = e => {
+  const handleConfirmation = values => {
     setCurrentStep(currentStep + 1)
     setMessageSent(true)
   }
@@ -69,10 +69,10 @@ const ContactForm = () => {
       method="post"
       netlify-honeypot="bot-field"
       data-netlify="true"
-      name="contact"
+      name="cc-form"
     >
       <input type="hidden" name="bot-field" />
-      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="form-name" value="cc-form" />
       <Steps size="small" current={currentStep}>
         <Step title="Info" />
         <Step title="Details" />
