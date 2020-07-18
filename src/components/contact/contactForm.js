@@ -71,6 +71,7 @@ const ContactForm = props => {
     }
 
     if (currentStep === lastStep) {
+      // Submit Netlify hidden form
       netlifyForm.current.dispatchEvent(new Event("submit"))
     }
   }
@@ -79,7 +80,7 @@ const ContactForm = props => {
     e.preventDefault()
 
     try {
-      await axios.post(props.location.pathname, qs.stringify(state), {
+      await axios.post("/", qs.stringify(state), {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
       })
 
