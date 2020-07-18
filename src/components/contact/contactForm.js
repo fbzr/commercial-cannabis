@@ -100,6 +100,7 @@ const ContactForm = props => {
         data-netlify="true"
         name="hidden-form"
         ref={netlifyForm}
+        action="/contact"
         onSubmit={e => handleNetlifySubmit(e)}
       >
         <input type="hidden" name="bot-field" />
