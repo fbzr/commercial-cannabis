@@ -80,7 +80,7 @@ const ContactForm = props => {
     e.preventDefault()
 
     try {
-      await axios.post("/", qs.stringify(state), {
+      await axios.post("/contact", qs.stringify(state), {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
       })
 
