@@ -1,20 +1,14 @@
-import React, { useState } from "react"
+import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Typography, Layout as AntLayout, Row, Col, Divider } from "antd"
+import { Layout as AntLayout, Row, Col } from "antd"
 import ContactForm from "../components/contact/contactForm"
-import { createFromIconfontCN } from "@ant-design/icons"
 import "./contact.less"
 
-const Contact = () => {
+const Contact = props => {
   const { Content } = AntLayout
-  const { Paragraph, Title } = Typography
-
-  const IconFont = createFromIconfontCN({
-    scriptUrl: "//at.alicdn.com/t/font_1924584_aexiew2uowj.js",
-  })
 
   const images = useStaticQuery(graphql`
     query {
@@ -48,7 +42,7 @@ const Contact = () => {
               />
             </div>
 
-            <ContactForm />
+            <ContactForm location={props.location} />
           </Col>
         </Row>
 

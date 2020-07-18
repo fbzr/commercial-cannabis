@@ -2,14 +2,16 @@ import React, { useState, useRef } from "react"
 import { Form, Input, Button, Steps, Space, Typography } from "antd"
 import PhoneInput from "./phoneInput"
 import "./contactForm.less"
+import axios from "axios"
+import qs from "query-string"
 
-const ContactForm = () => {
+const ContactForm = props => {
   const { Step } = Steps
   const { TextArea } = Input
   const { Title } = Typography
 
   const [form] = Form.useForm()
-  const netlifyForm = useRef()
+  const netlifyForm = useRef(null)
 
   const [state, setState] = useState({
     name: "",
@@ -17,22 +19,12 @@ const ContactForm = () => {
     location: "",
     phone: "",
     email: "",
-    questions: [
-      {
-        question:
-          "What type of business or businesses do you want Commercial Cannabis Inc to find in order to help your business succeed and why?",
-        answer: "",
-      },
-      {
-        question:
-          "Please summarize your business. Tell us using as many details as you can about your customer base, products, how you’re the same as your competition in your sector and how you’re different.",
-        answer: "",
-      },
-    ],
+    details1: "",
+    details2: "",
   })
 
   const [currentStep, setCurrentStep] = useState(1)
-  const [messageSent, setMessageSent] = useState(false)
+  const [formSubmitted, setFormSubmitted] = useState(false)
 
   const lastStep = 2
 
@@ -43,7 +35,7 @@ const ContactForm = () => {
     }))
   }
 
-  const validateFields = async () => {
+  const validateFields = async e => {
     if (currentStep === 1) {
       try {
         const { name, company, location, phone } = await form.validateFields([
@@ -66,35 +58,37 @@ const ContactForm = () => {
         console.log("Failed:", err)
       }
     } else if (currentStep === 2) {
-      const { question1, question2 } = await form.validateFields([
-        "question1",
-        "question2",
+      const { details1, details2 } = await form.validateFields([
+        "details1",
+        "details2",
       ])
 
       setState(prev => ({
         ...prev,
-        questions: [
-          {
-            ...prev.questions[0],
-            answer: question1,
-          },
-          {
-            ...prev.questions[1],
-            answer: question2,
-          },
-        ],
+        details1,
+        details2,
       }))
     }
 
     if (currentStep === lastStep) {
-      form.submit()
+      netlifyForm.current.dispatchEvent(new Event("submit"))
     }
   }
 
-  const handleConfirmation = values => {
-    netlifyForm.current.submit()
-    setCurrentStep(currentStep + 1)
-    setMessageSent(true)
+  const handleNetlifySubmit = async e => {
+    e.preventDefault()
+
+    try {
+      await axios.post(props.location.pathname, qs.stringify(state), {
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      })
+
+      setFormSubmitted(true)
+    } catch (err) {
+      setFormSubmitted(false)
+    } finally {
+      setCurrentStep(currentStep + 1)
+    }
   }
 
   return (
@@ -105,12 +99,16 @@ const ContactForm = () => {
         data-netlify="true"
         name="hidden-form"
         ref={netlifyForm}
+        onSubmit={e => handleNetlifySubmit(e)}
       >
         <input type="hidden" name="bot-field" />
         <input type="hidden" name="form-name" value="hidden-form" />
         <input type="hidden" name="name" value={state.name} />
         <input type="hidden" name="location" value={state.location} />
         <input type="hidden" name="company" value={state.company} />
+        <input type="hidden" name="phone" value={state.phone} />
+        <input type="hidden" name="details-1" value={state.details1} />
+        <input type="hidden" name="details-2" value={state.details2} />
       </form>
       <Form
         className="contact-form"
@@ -118,7 +116,6 @@ const ContactForm = () => {
         labelAlign="left"
         labelCol={{ xs: { span: 24 } }}
         wrapperCol={{ xs: { span: 24 } }}
-        onFinish={handleConfirmation}
         name="contact-form"
       >
         <Steps size="small" current={currentStep - 1}>
@@ -154,44 +151,46 @@ const ContactForm = () => {
                 ]}
                 validateTrigger={["onBlur", "onChange"]}
               >
-                <PhoneInput
-                  name="phone"
-                  onChange={handlePhoneInput}
-                  value={state.phone}
-                />
+                <PhoneInput name="phone" onChange={handlePhoneInput} />
               </Form.Item>
             </>
           ) : currentStep === 2 ? (
             <>
               <Form.Item
                 colon={false}
-                label={state.questions[0].question}
-                name="question1"
+                label="What type of business or businesses do you want Commercial Cannabis Inc to find in order to help your business succeed and why?"
+                name="details1"
                 rules={[{ required: true, message: "Answer required" }]}
               >
-                <TextArea name="moreInfo-1" rows={5} />
+                <TextArea name="details1" rows={5} />
               </Form.Item>
               <Form.Item
                 colon={false}
-                label={state.questions[1].question}
-                name="question2"
+                label="Please summarize your business. Tell us using as many details as you can about your customer base, products, how you’re the same as your competition in your sector and how you’re different."
+                name="details2"
                 rules={[{ required: true, message: "Answer required" }]}
               >
-                <TextArea name="moreInfo-2" rows={5} />
+                <TextArea name="details2" rows={5} />
               </Form.Item>
             </>
           ) : (
             currentStep === lastStep + 1 && (
-              <div style={{ margin: "50px 0", textAlign: "center" }}>
-                <Title level={2}>Message Sent</Title>
+              <div style={{ margin: "100px 0", textAlign: "center" }}>
+                <Title level={2}>
+                  {formSubmitted
+                    ? "Message Sent"
+                    : "Form could not be submitted"}
+                </Title>
                 <Typography>
-                  Thank you for contacting us. We'll be in touch soon.
+                  {formSubmitted
+                    ? "Thank you for contacting us. We'll be in touch soon."
+                    : "Please try again or contact the responsible for this website"}
                 </Typography>
               </div>
             )
           )}
         </div>
-        {!messageSent && (
+        {!formSubmitted && (
           <div style={{ textAlign: "right", marginBottom: 16 }}>
             <Space>
               {currentStep > 0 && (
