@@ -5,7 +5,7 @@ import "./contactForm.less"
 import axios from "axios"
 import qs from "query-string"
 
-const ContactForm = props => {
+const ContactForm = () => {
   const { Step } = Steps
   const { TextArea } = Input
   const { Title } = Typography
@@ -19,8 +19,8 @@ const ContactForm = props => {
     location: "",
     phone: "",
     email: "",
-    details1: "",
-    details2: "",
+    prospect: "",
+    summary: "",
   })
 
   const [currentStep, setCurrentStep] = useState(1)
@@ -29,45 +29,53 @@ const ContactForm = props => {
   const lastStep = 2
 
   const handlePhoneInput = value => {
-    setState(prev => ({
-      ...prev.state,
+    setState({
+      ...state,
       phone: value,
-    }))
+    })
   }
 
   const validateFields = async e => {
     if (currentStep === 1) {
       try {
-        const { name, company, location, phone } = await form.validateFields([
+        const {
+          name,
+          company,
+          location,
+          email,
+          phone,
+        } = await form.validateFields([
           "name",
           "company",
           "location",
           "phone",
+          "email",
         ])
 
-        setState(prev => ({
-          ...prev,
+        setState({
+          ...state,
           name,
           company,
+          email,
           location,
           phone,
-        }))
+        })
 
         setCurrentStep(currentStep + 1)
       } catch (err) {
         console.log("Failed:", err)
       }
     } else if (currentStep === 2) {
-      const { details1, details2 } = await form.validateFields([
-        "details1",
-        "details2",
+      const { prospect, summary } = await form.validateFields([
+        "prospect",
+        "summary",
       ])
 
-      setState(prev => ({
-        ...prev,
-        details1,
-        details2,
-      }))
+      setState({
+        ...state,
+        prospect,
+        summary,
+      })
     }
 
     if (currentStep === lastStep) {
@@ -80,9 +88,16 @@ const ContactForm = props => {
     e.preventDefault()
 
     try {
-      await axios.post("/contact", qs.stringify(state), {
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      })
+      await axios.post(
+        "/contact",
+        qs.stringify({
+          ...state,
+          "form-name": "netlify-form",
+        }),
+        {
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        }
+      )
 
       setFormSubmitted(true)
     } catch (err) {
@@ -96,20 +111,21 @@ const ContactForm = props => {
     <>
       <form
         method="post"
+        action="/contact"
         netlify-honeypot="bot-field"
         data-netlify="true"
-        name="hidden-form"
+        name="netlify-form"
         ref={netlifyForm}
         onSubmit={e => handleNetlifySubmit(e)}
       >
         <input type="hidden" name="bot-field" />
-        <input type="hidden" name="form-name" value="hidden-form" />
+        <input type="hidden" name="form-name" value="netlify-form" />
         <input type="hidden" name="name" value={state.name} />
         <input type="hidden" name="location" value={state.location} />
         <input type="hidden" name="company" value={state.company} />
         <input type="hidden" name="phone" value={state.phone} />
-        <input type="hidden" name="details-1" value={state.details1} />
-        <input type="hidden" name="details-2" value={state.details2} />
+        <input type="hidden" name="prospect" value={state.prospect} />
+        <input type="hidden" name="summary" value={state.summary} />
       </form>
       <Form
         className="contact-form"
@@ -141,7 +157,14 @@ const ContactForm = props => {
               >
                 <Input name="location" />
               </Form.Item>
-              <Form.Item label="Company" name="companyName">
+              <Form.Item
+                label="Email"
+                name="email"
+                rules={[{ required: true, message: "Email is required" }]}
+              >
+                <Input name="email" />
+              </Form.Item>
+              <Form.Item label="Company" name="company">
                 <Input name="company" />
               </Form.Item>
               <Form.Item
@@ -160,18 +183,18 @@ const ContactForm = props => {
               <Form.Item
                 colon={false}
                 label="What type of business or businesses do you want Commercial Cannabis Inc to find in order to help your business succeed and why?"
-                name="details1"
+                name="prospect"
                 rules={[{ required: true, message: "Answer required" }]}
               >
-                <TextArea name="details1" rows={5} />
+                <TextArea name="prospect" rows={5} />
               </Form.Item>
               <Form.Item
                 colon={false}
                 label="Please summarize your business. Tell us using as many details as you can about your customer base, products, how you’re the same as your competition in your sector and how you’re different."
-                name="details2"
+                name="summary"
                 rules={[{ required: true, message: "Answer required" }]}
               >
-                <TextArea name="details2" rows={5} />
+                <TextArea name="summary" rows={5} />
               </Form.Item>
             </>
           ) : (
@@ -209,6 +232,7 @@ const ContactForm = props => {
           </div>
         )}
       </Form>
+      <pre>{JSON.stringify(state, null, 2)}</pre>
     </>
   )
 }

@@ -23,7 +23,7 @@ const PhoneInput = props => {
     props.onChange(format)
   }
 
-  return <Input {...props} onChange={onChange} maxLength={25} />
+  return <Input {...props} onChange={onChange} />
 }
 
 export default PhoneInput
