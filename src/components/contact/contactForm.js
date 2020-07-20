@@ -124,6 +124,7 @@ const ContactForm = () => {
         <input type="hidden" name="location" value={state.location} />
         <input type="hidden" name="company" value={state.company} />
         <input type="hidden" name="phone" value={state.phone} />
+        <input type="hidden" name="email" value={state.email} />
         <input type="hidden" name="prospect" value={state.prospect} />
         <input type="hidden" name="summary" value={state.summary} />
       </form>
