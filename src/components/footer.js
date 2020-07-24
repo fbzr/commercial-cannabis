@@ -27,8 +27,8 @@ const Footer = () => {
 
   return (
     <Layout.Footer>
-      <Row gutter={36} align="middle" justify="space-between">
-        <Col sx={12} md={6}>
+      <Row gutter={36} justify="center" align="center">
+        <Col xs={18} md={6} className="img-col">
           <Img
             fluid={images.logo.childImageSharp.fluid}
             alt="Commercial Cannabis Logo"
@@ -36,7 +36,7 @@ const Footer = () => {
           />
         </Col>
 
-        <Col>
+        <Col xs={24} md={6} className="info">
           <Space direction="vertical">
             <div style={{ display: "flex", alignItems: "center" }}>
               <IconFont

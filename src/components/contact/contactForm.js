@@ -132,6 +132,7 @@ const ContactForm = () => {
         className="contact-form"
         form={form}
         labelAlign="left"
+        direction="horizontal"
         labelCol={{ xs: { span: 24 } }}
         wrapperCol={{ xs: { span: 24 } }}
         name="contact-form"
