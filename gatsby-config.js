@@ -16,7 +16,12 @@ module.exports = {
           "menu-horizontal-line-height": "50px",
           "layout-header-height": "50px",
           "navbar-height": "@menu-horizontal-line-height",
-          "layout-footer-padding": "25px 14%",
+          "layout-footer-padding": "25px 10%",
+          "screen-xs": "480px",
+          "screen-sm": "576px",
+          "screen-md": "768px",
+          "screen-lg": "992px",
+          "screen-xl": "1200px",
         },
       },
     },
@@ -51,6 +56,7 @@ module.exports = {
       resolve: `gatsby-plugin-scroll-reveal`,
       options: {
         once: true, // Defines if animation needs to be launched once
+        threshold: 0.1, // Percentage of an element's area that needs to be visible to launch animation
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

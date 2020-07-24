@@ -1,14 +1,26 @@
-footer {
-  .icon {
-    font-size: 1.2rem;
-    color: rgba(0, 0, 0, 0.65);
+@import "./mixins.less";
 
-    &.clickable {
-      font-size: 1.9rem;
-      transition-property: color;
-      transition-duration: 300ms;
-      &:hover {
-        color: @primary-color;
+footer {
+  .img-col {
+    margin: auto 0;
+  }
+
+  .info {
+    @media (max-width: @screen-sm) {
+      .flex();
+    }
+
+    .icon {
+      font-size: 1.2rem;
+      color: rgba(0, 0, 0, 0.65);
+
+      &.clickable {
+        font-size: 1.9rem;
+        transition-property: color;
+        transition-duration: 300ms;
+        &:hover {
+          color: @primary-color;
+        }
       }
     }
   }

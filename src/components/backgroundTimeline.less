@@ -1,16 +1,38 @@
-@label-width: 20%;
-@content-width: 80%;
+.ant-timeline {
+  @label-width: 20%;
+  @content-width: 80%;
 
-.ant-timeline-item-label {
-  width: calc(@label-width - 12px) !important;
-}
+  @label-width-sm-screen: 30%;
+  @content-width-sm-screen: 70%;
 
-.ant-timeline-item-tail,
-.ant-timeline-item-head {
-  left: @label-width !important;
-}
+  .ant-timeline-item {
+    padding-bottom: 35px;
 
-.ant-timeline-item-content {
-  left: calc(@label-width - 4px) !important;
-  width: calc(@content-width - 14px) !important;
+    .ant-timeline-item-label {
+      width: calc(@label-width - 12px) !important;
+
+      @media only screen and (max-width: @screen-sm) {
+        width: calc(@label-width-sm-screen - 12px) !important;
+      }
+    }
+
+    .ant-timeline-item-tail,
+    .ant-timeline-item-head {
+      left: @label-width !important;
+
+      @media only screen and (max-width: @screen-sm) {
+        left: @label-width-sm-screen !important;
+      }
+    }
+
+    .ant-timeline-item-content {
+      left: calc(@label-width - 4px) !important;
+      width: calc(@content-width - 14px) !important;
+
+      @media only screen and (max-width: @screen-sm) {
+        left: calc(@label-width-sm-screen - 4px) !important;
+        width: calc(@content-width-sm-screen - 12px) !important;
+      }
+    }
+  }
 }

@@ -48,7 +48,7 @@ const About = () => {
         >
           <Col
             xs={24}
-            md={14}
+            sm={14}
             style={{ display: "flex", flexDirection: "column" }}
           >
             <Title level={2}>Meet the CEO of Commercial Cannabis (Inc.)</Title>
@@ -69,7 +69,7 @@ const About = () => {
               and half.
             </Paragraph>
           </Col>
-          <Col xs={24} lg={10}>
+          <Col xs={24} sm={10}>
             <Img
               className="profile-photo"
               fluid={images.profile.childImageSharp.fluid}
@@ -131,13 +131,13 @@ const About = () => {
           data-sal-duration="500"
           data-sal-easing="ease"
         >
-          <Col xs={24} lg={6}>
+          <Col xs={24} sm={6}>
             <Img
               fluid={images.army.childImageSharp.fluid}
-              alt="Commercial Cannabis Logo"
+              alt="James's photo in Army"
             />
           </Col>
-          <Col xs={24} md={18}>
+          <Col xs={24} sm={18}>
             <Paragraph>
               A wise person once told James, “People will forget what you say,
               they will forget what you do, but they will NEVER forget how you
@@ -153,7 +153,7 @@ const About = () => {
         </Row>
         <Divider />
         <BackgroundTimeline />
-        <Paragraph>
+        {/* <Paragraph>
           On a side note, James is also learning Spanish, construction, and
           international business.
         </Paragraph>
@@ -161,7 +161,7 @@ const About = () => {
           Romans 8:31 James 1:12 Galatians 6 Psalms 23 Psalms 37
           <br />
           LOVE — HOPE — FAITH
-        </Paragraph>
+        </Paragraph> */}
       </Content>
       <div
         className="content-padding"

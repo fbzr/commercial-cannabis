@@ -48,12 +48,12 @@ const IndexPage = () => {
           data-sal-duration="700"
           data-sal-easing="ease"
         >
-          <Col xs={24} md={10} className="artsy">
+          <Col xs={24} sm={10} className="artsy">
             <Title level={2}>
               Commercial Cannabis (Inc) is a Wholesale Marketing company.
             </Title>
           </Col>
-          <Col xs={24} lg={14}>
+          <Col xs={24} sm={14}>
             <Paragraph>
               From coast to coast in the United States and in many other
               countries around the world, the cannabis industry is growing
@@ -75,7 +75,7 @@ const IndexPage = () => {
           data-sal-duration="700"
           data-sal-easing="ease"
         >
-          <Col xs={24} md={16}>
+          <Col xs={{ span: 24, order: 2 }} sm={{ span: 16, order: 1 }}>
             <Paragraph>
               Maybe you’re a CBD dispensary in Maine? We’ve got your growers,
               extractors, and bottlers in Oregon, arguably the best soil and
@@ -88,7 +88,11 @@ const IndexPage = () => {
               helps the world, we’ll give it a go to assist.
             </Paragraph>
           </Col>
-          <Col xs={24} md={8} className="artsy">
+          <Col
+            xs={{ span: 24, order: 1 }}
+            sm={{ span: 8, order: 2 }}
+            className="artsy"
+          >
             <Title level={2} style={{ fontSize: "1.7rem" }}>
               Using its nationally spread force, Commercial Cannabis Inc matches
               each type of business and products with the right partner(s).
@@ -104,13 +108,13 @@ const IndexPage = () => {
           data-sal-duration="700"
           data-sal-easing="ease"
         >
-          <Col xs={24} md={8} className="artsy">
+          <Col xs={24} sm={8} className="artsy">
             <Title level={2} style={{ fontSize: "1.7rem" }}>
               We introduce good people in the cannabis industry and ‘cultivate’
               business to business relations.
             </Title>
           </Col>
-          <Col xs={24} md={16}>
+          <Col xs={24} sm={16}>
             <Paragraph>
               Simply put, “We Introduce Good People in the Cannabis Industry”
               and “We ‘Cultivate’ Business to Business Relations” that benefit
