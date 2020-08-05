@@ -3,6 +3,7 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import "../content/files/home.json"
 
 import { Typography, Row, Col, Divider, Layout as AntLayout } from "antd"
 import "./index.less"

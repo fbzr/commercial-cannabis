@@ -21,12 +21,40 @@ media_folder: static/assets
 public_folder: /assets
 
 collections:
-  - name: blog
-    label: Blog
-    folder: blog
-    create: true
-    fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: datetime }
-      - { name: title, label: Title }
-      - { name: body, label: Body, widget: markdown }
+  - label: Pages
+    name: pages
+    files:
+      - label: Home
+        name: home
+        file: src/content/files/home.json
+        fields:
+          - label: Text sections
+            name: text_sections
+            widget: list
+            fields:
+              - { label: Highlight text, name: highlight, widget: string }
+              - { label: Paragraph, name: paragraph, widget: markdown }
+
+      - label: About
+        name: about
+        file: src/content/files/about.json
+        fields:
+          - { label: Title, name: title, widget: string, required: false }
+          - { label: Body, name: body, widget: markdown, required: false }
+          - label: Team
+            name: team
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Position, name: position, widget: string }
+              - { label: Bio, name: bio, widget: markdown }
+              - label: Photos
+                name: photos
+                widget: list
+                field: { label: Image, name: image, widget: image }
+              - label: Timeline
+                name: timeline
+                widget: list
+                fields:
+                  - { label: Date, name: date, widget: string }
+                  - { label: Description, name: description, widget: string }
