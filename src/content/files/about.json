@@ -1,9 +1,12 @@
 {
   "team": [
     {
-      "bio": "James Bellile grew up in Wisconsin and left to join the Army, as a logistical officer, after finishing college in 2001. 90 days later, 9-11 changed the world and, after completing his four years of honorable service on Active Duty, James moved to Las Vegas to start a civilian life in 2005. In the Army, among many things, James learned the officer’s code LDRSHIP, which stands for Loyalty, Duty, Respect, Selfless Service, Honor, Integrity and Personal Courage. He is one of those rare humans still left out there where you can still agree on terms, shake hands, and he’ll never under deliver. He is the respected real estate broker, founder and operator of Modern Times Realty, which is based out of Las Vegas, Nevada, and has been an entrepreneur for over a decade and a half.\n\n![James Bellile](/assets/james-bellile.jpg \"James Bellile\")",
+      "bio": "James Bellile grew up in Wisconsin and left to join the Army, as a logistical officer, after finishing college in 2001. 90 days later, 9-11 changed the world and, after completing his four years of honorable service on Active Duty, James moved to Las Vegas to start a civilian life in 2005. In the Army, among many things, James learned the officer’s code LDRSHIP, which stands for Loyalty, Duty, Respect, Selfless Service, Honor, Integrity and Personal Courage. He is one of those rare humans still left out there where you can still agree on terms, shake hands, and he’ll never under deliver. He is the respected real estate broker, founder and operator of Modern Times Realty, which is based out of Las Vegas, Nevada, and has been an entrepreneur for over a decade and a half.",
       "name": "James Bellile",
-      "position": "CEO"
+      "position": "CEO",
+      "photos": [
+        "/assets/james-bellile.jpg"
+      ]
     }
   ]
 }
