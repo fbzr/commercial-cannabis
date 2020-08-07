@@ -46,7 +46,7 @@ const IndexPage = () => {
           {homeContent.text_sections.map((section, index) => (
             <>
               <Row
-                gutter={36}
+                gutter={48}
                 className="section"
                 justify="center"
                 data-sal="fade"
@@ -54,10 +54,9 @@ const IndexPage = () => {
                 data-sal-easing="ease"
               >
                 <Col
-                  xs={24}
-                  sm={10}
+                  xs={{ span: 24, order: 1 }}
+                  sm={{ span: 8, order: index % 2 === 0 ? 1 : 2 }}
                   className="artsy"
-                  order={index % 2 === 0 ? 1 : 2}
                 >
                   <Title
                     level={2}
@@ -69,7 +68,10 @@ const IndexPage = () => {
                     {section.highlight}
                   </Title>
                 </Col>
-                <Col xs={24} sm={14} order={index % 2 === 0 ? 2 : 1}>
+                <Col
+                  xs={{ span: 24, order: 2 }}
+                  sm={{ span: 16, order: index % 2 === 0 ? 2 : 1 }}
+                >
                   <Paragraph>
                     <ReactMarkdown source={section.paragraph} />
                   </Paragraph>
