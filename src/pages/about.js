@@ -5,6 +5,8 @@ import Layout from "../components/layout"
 import BackgroundTimeline from "../components/backgroundTimeline"
 import SEO from "../components/seo"
 import { Typography, Row, Col, Divider, Layout as AntLayout } from "antd"
+import aboutContent from "../content/files/about.json"
+import ReactMarkdown from "react-markdown"
 
 const About = () => {
   const { Title, Paragraph } = Typography
