@@ -47,7 +47,10 @@ collections:
             widget: list
             fields:
               - { label: Name, name: name, widget: string }
-              - { label: Position, name: position, widget: string }
+              - label: Position
+                name: position
+                widget: string
+                required: false
               - label: Bio
                 name: bio
                 widget: list
