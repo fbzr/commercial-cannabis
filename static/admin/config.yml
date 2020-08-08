@@ -53,8 +53,16 @@ collections:
                 required: false
               - label: Bio
                 name: bio
-                widget: list
-                field: { label: Paragraph, name: paragraph, widget: markdown }
+                fields:
+                  - label: Title
+                    name: title
+                    widget: string
+                    required: false
+                  - label: Paragraphs
+                    name: paragraphs
+                    widget: list
+                    field:
+                      { label: Paragraph, name: paragraph, widget: markdown }
               - label: Photos
                 name: photos
                 widget: list
