@@ -53,6 +53,7 @@ collections:
                 required: false
               - label: Bio
                 name: bio
+                widget: object
                 fields:
                   - label: Title
                     name: title
