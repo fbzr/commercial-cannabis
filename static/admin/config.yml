@@ -18,6 +18,7 @@
 backend:
   name: git-gateway
 media_folder: src/images
+public_folder: ""
 publish_mode: editorial_workflow
 
 collections:
