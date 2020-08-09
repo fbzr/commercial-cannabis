@@ -1,13 +1,13 @@
 import React from "react"
 
-import { Layout, Space, Row, Col, Typography, Divider } from "antd"
+import { Layout, Space, Row, Col, Typography } from "antd"
 import { createFromIconfontCN } from "@ant-design/icons"
 import "./footer.less"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 const Footer = () => {
-  const { Paragraph, Text } = Typography
+  const { Text } = Typography
 
   const IconFont = createFromIconfontCN({
     scriptUrl: "//at.alicdn.com/t/font_1924584_aexiew2uowj.js",
