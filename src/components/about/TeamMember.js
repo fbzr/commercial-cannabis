@@ -43,7 +43,7 @@ const TeamMember = ({ member }) => {
       >
         <Col
           xs={24}
-          sm={photos.lenth > 0 ? 14 : 24}
+          sm={photos.length ? 14 : 24}
           style={{ display: "flex", flexDirection: "column" }}
         >
           <Title level={2}>{bio.title || name}</Title>
@@ -53,7 +53,7 @@ const TeamMember = ({ member }) => {
             </Paragraph>
           )}
         </Col>
-        {photos.length > 0 && (
+        {photos.length && (
           <Col xs={24} sm={10}>
             <Img
               className="profile-photo"
@@ -101,7 +101,7 @@ const TeamMember = ({ member }) => {
       )}
 
       <Divider />
-      <BackgroundTimeline />
+      <BackgroundTimeline name={name} data={timeline} />
     </>
   )
 }
