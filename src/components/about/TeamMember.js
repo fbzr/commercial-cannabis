@@ -43,7 +43,7 @@ const TeamMember = ({ member }) => {
       >
         <Col
           xs={24}
-          sm={14}
+          sm={photos.lenth > 0 ? 14 : 24}
           style={{ display: "flex", flexDirection: "column" }}
         >
           <Title level={2}>{bio.title || name}</Title>
@@ -53,13 +53,15 @@ const TeamMember = ({ member }) => {
             </Paragraph>
           )}
         </Col>
-        <Col xs={24} sm={10}>
-          <Img
-            className="profile-photo"
-            fluid={images.profile.childImageSharp.fluid}
-            alt="James"
-          />
-        </Col>
+        {photos.length > 0 && (
+          <Col xs={24} sm={10}>
+            <Img
+              className="profile-photo"
+              fluid={images.profile.childImageSharp.fluid}
+              alt="James"
+            />
+          </Col>
+        )}
       </Row>
       {paragraphs?.slice(1, paragraphs.length - 2)?.map(paragraph => (
         <Paragraph
