@@ -22,7 +22,7 @@ collections:
 
   - label: About
     name: about
-    media_folder: src/images/about
+    media_folder: /src/images/about
     public_folder: ""
     files:
       - label: Content
