@@ -12,14 +12,9 @@
       },
       "name": "James Bellile",
       "photos": [
-        {
-          "image": "james-bellile.jpg",
-          "description": "James Bellile"
-        },
-        {
-          "image": "james-bellile-army.jpg",
-          "description": "James in the army"
-        }
+        "james-bellile.jpg",
+        "james-bellile-army.jpg",
+        "fabricio-bezerra.jpg"
       ],
       "timeline": [
         {
