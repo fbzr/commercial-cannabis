@@ -22,6 +22,8 @@ collections:
 
   - label: About
     name: about
+    media_folder: /about
+    public_folder: ""
     files:
       - label: Content
         name: content
@@ -79,8 +81,6 @@ collections:
       - label: About
         name: about
         file: src/content/files/about.json
-        # media_folder: "/about"
-        # public_folder: ""
         fields:
           - { label: Title, name: title, widget: string, required: false }
           - { label: Body, name: body, widget: markdown, required: false }
