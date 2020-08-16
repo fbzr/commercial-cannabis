@@ -4,7 +4,90 @@ media_folder: src/images
 public_folder: ""
 publish_mode: editorial_workflow
 
+# collections:
+#   - name: posts
+#     label: Posts
+#     label_singular: 'Post'
+#     folder: content/posts
+#     path: '{{slug}}/index'
+#     media_folder: ''
+#     public_folder: ''
+#     fields:
+#       - label: Title
+#         name: title
+#         widget: string
+#       - label: 'Cover Image'
+#         name: 'image'
+#         widget: 'image'
+
 collections:
+  # - label: Home
+  #   name: home
+  #   file: src/content/files/home.json
+  #   fields:
+  #     - label: Text sections
+  #       name: text_sections
+  #       widget: list
+  #       fields:
+  #         - { label: Highlight text, name: highlight, widget: string }
+  #         - { label: Paragraph, name: paragraph, widget: markdown }
+  - label: Home
+    name: home
+    files:
+      - label: Content
+        name: content
+        file: src/content/files/home.json
+        fields:
+          - label: Text sections
+            label_singular: Section
+            name: text_sections
+            widget: list
+            fields:
+              - { label: Highlight text, name: highlight, widget: string }
+              - { label: Paragraph, name: paragraph, widget: markdown }
+
+  - label: About
+    name: about
+    files:
+      - label: Content
+        name: content
+        file: src/content/files/about.json
+        fields:
+          - { label: Title, name: title, widget: string, required: false }
+          - { label: Body, name: body, widget: markdown, required: false }
+          - label: Team
+            name: team
+            widget: list
+            fields:
+              - { label: Name, name: name, widget: string }
+              - label: Position
+                name: position
+                widget: string
+                required: false
+              - label: Bio
+                name: bio
+                widget: object
+                fields:
+                  - label: Title
+                    name: title
+                    widget: string
+                    required: false
+                  - label: Paragraphs
+                    name: paragraphs
+                    widget: list
+                    field:
+                      { label: Paragraph, name: paragraph, widget: markdown }
+              - label: Photos
+                name: photos
+                widget: list
+                field: { label: Image, name: image, widget: image }
+              - label: Timeline
+                name: timeline
+                widget: list
+                fields:
+                  - { label: Date, name: date, widget: string }
+                  - { label: Description, name: description, widget: markdown }
+
   - label: Pages
     name: pages
     files:
@@ -22,6 +105,8 @@ collections:
       - label: About
         name: about
         file: src/content/files/about.json
+        media_folder: "/about"
+        public_folder: ""
         fields:
           - { label: Title, name: title, widget: string, required: false }
           - { label: Body, name: body, widget: markdown, required: false }
