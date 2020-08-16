@@ -4,33 +4,7 @@ media_folder: src/images
 public_folder: ""
 publish_mode: editorial_workflow
 
-# collections:
-#   - name: posts
-#     label: Posts
-#     label_singular: 'Post'
-#     folder: content/posts
-#     path: '{{slug}}/index'
-#     media_folder: ''
-#     public_folder: ''
-#     fields:
-#       - label: Title
-#         name: title
-#         widget: string
-#       - label: 'Cover Image'
-#         name: 'image'
-#         widget: 'image'
-
 collections:
-  # - label: Home
-  #   name: home
-  #   file: src/content/files/home.json
-  #   fields:
-  #     - label: Text sections
-  #       name: text_sections
-  #       widget: list
-  #       fields:
-  #         - { label: Highlight text, name: highlight, widget: string }
-  #         - { label: Paragraph, name: paragraph, widget: markdown }
   - label: Home
     name: home
     files:
