@@ -79,8 +79,8 @@ collections:
       - label: About
         name: about
         file: src/content/files/about.json
-        media_folder: "/about"
-        public_folder: ""
+        # media_folder: "/about"
+        # public_folder: ""
         fields:
           - { label: Title, name: title, widget: string, required: false }
           - { label: Body, name: body, widget: markdown, required: false }
