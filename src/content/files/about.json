@@ -11,7 +11,16 @@
         "title": "Meet James Bellile, the founder of Commercial Cannabis"
       },
       "name": "James Bellile",
-      "photos": [],
+      "photos": [
+        {
+          "image": "james-bellile.jpg",
+          "description": "James Belille"
+        },
+        {
+          "image": "james-bellile-army.jpg",
+          "description": "James in the army"
+        }
+      ],
       "timeline": [
         {
           "date": "May 2020 - Present",
