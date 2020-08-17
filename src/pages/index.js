@@ -10,7 +10,7 @@ import { Typography, Row, Col, Divider, Layout as AntLayout } from "antd"
 import "./index.less"
 
 const IndexPage = () => {
-  const { Title, Text, Paragraph } = Typography
+  const { Title, Paragraph } = Typography
   const { Content } = AntLayout
 
   const images = useStaticQuery(graphql`
