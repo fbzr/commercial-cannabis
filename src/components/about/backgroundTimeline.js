@@ -14,8 +14,9 @@ const backgroundTimeline = ({ name, data }) => {
           {`${name}'s Background`}
         </Title>
         <Timeline mode="left" style={{ marginTop: 50 }}>
-          {data.map(milestone => (
+          {data.map((milestone, key) => (
             <Timeline.Item
+              key={key}
               label={milestone.date}
               data-sal="fade"
               data-sal-duration="500"

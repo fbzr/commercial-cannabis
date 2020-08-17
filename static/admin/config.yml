@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-media_folder: src/images
+media_folder: src/images/misc
 public_folder: ""
 publish_mode: editorial_workflow
 
@@ -56,7 +56,9 @@ collections:
               - label: Photos
                 name: photos
                 widget: list
-                field: { label: Image, name: image, widget: image }
+                fields:
+                  - { label: Image, name: image, widget: image }
+                  - { label: Description, name: description, widget: string }
               - label: Timeline
                 name: timeline
                 widget: list

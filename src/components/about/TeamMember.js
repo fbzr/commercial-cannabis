@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { Typography, Row, Col, Divider } from "antd"
@@ -8,27 +8,25 @@ import BackgroundTimeline from "./backgroundTimeline"
 
 const TeamMember = ({ member }) => {
   const { Title, Paragraph } = Typography
-  const { name, bio, photos, timeline } = member
+  const { name, bio, photos, timeline, position } = member
   const { paragraphs } = bio
 
   const images = useStaticQuery(graphql`
     query {
-      profile: file(relativePath: { eq: "james-bellile.jpg" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      army: file(relativePath: { eq: "james-bellile-army.jpg" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
+      images: allFile(filter: { sourceInstanceName: { eq: "about" } }) {
+        edges {
+          node {
+            relativePath
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
         }
       }
     }
-  `)
+  `).images.edges
 
   return (
     <>
@@ -57,14 +55,18 @@ const TeamMember = ({ member }) => {
           <Col xs={24} sm={10}>
             <Img
               className="profile-photo"
-              fluid={images.profile.childImageSharp.fluid}
-              alt="James"
+              fluid={
+                images.find(e => e.node.relativePath === photos[0].image).node
+                  .childImageSharp.fluid
+              }
+              alt={photos[0].description}
             />
           </Col>
         )}
       </Row>
-      {paragraphs?.slice(1, paragraphs.length - 2)?.map(paragraph => (
+      {paragraphs?.slice(1, paragraphs.length - 2)?.map((paragraph, index) => (
         <Paragraph
+          key={index}
           className="section"
           data-sal="fade"
           data-sal-duration="500"
@@ -86,8 +88,11 @@ const TeamMember = ({ member }) => {
           {photos.length > 1 && (
             <Col xs={24} sm={6}>
               <Img
-                fluid={images.army.childImageSharp.fluid}
-                alt="James's photo in Army"
+                fluid={
+                  images.find(e => e.node.relativePath === photos[1].image).node
+                    .childImageSharp.fluid
+                }
+                alt={photos[1].description}
               />
             </Col>
           )}
