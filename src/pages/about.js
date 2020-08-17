@@ -19,8 +19,8 @@ const About = () => {
         className="main-content content-padding"
         style={{ paddingBottom: 0 }}
       >
-        {team.map(member => (
-          <TeamMember member={member} />
+        {team.map((member, index) => (
+          <TeamMember key={index} member={member} />
         ))}
       </Content>
       <div
