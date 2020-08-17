@@ -47,27 +47,6 @@
           "description": "University of Wisconsin—Madison Bachelors of Science Undergraduate Degrees in both History and Political Science"
         }
       ]
-    },
-    {
-      "name": "Fabricio",
-      "bio": {
-        "paragraphs": [
-          "sdsfadfasdfsdf"
-        ]
-      },
-      "photos": [
-        {
-          "image": "fabricio-bezerra.jpg",
-          "description": "fabricio profile"
-        }
-      ],
-      "timeline": [
-        {
-          "date": "2020",
-          "description": "Started a new career"
-        }
-      ],
-      "position": "dev"
     }
   ]
 }
